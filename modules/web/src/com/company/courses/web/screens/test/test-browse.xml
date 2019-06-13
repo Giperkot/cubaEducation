@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="testsTable"
+        messagesPack="com.company.courses.web.screens.test">
+    <data readOnly="true">
+        <collection id="testsDc"
+                    class="com.company.courses.entity.Test"
+                    view="test-with-course-and-questionList">
+            <loader id="testsDl">
+                <query>
+                    <![CDATA[select e from courses_Test e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="testsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="testsTable"
+                dataLoader="testsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="testsTable"
+                    width="100%"
+                    dataContainer="testsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="title"/>
+                <column id="course"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="testsTable.create"/>
+                <button id="editBtn" action="testsTable.edit"/>
+                <button id="removeBtn" action="testsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

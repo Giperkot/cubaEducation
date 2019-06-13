@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="specializationsTable"
+        messagesPack="com.company.courses.web.screens.specialization">
+    <data readOnly="true">
+        <collection id="specializationsDc"
+                    class="com.company.courses.entity.Specialization"
+                    view="_local">
+            <loader id="specializationsDl">
+                <query>
+                    <![CDATA[select e from courses_Specialization e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="specializationsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="specializationsTable"
+                dataLoader="specializationsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="specializationsTable"
+                    width="100%"
+                    dataContainer="specializationsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="title"/>
+                <column id="description"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="specializationsTable.create"/>
+                <button id="editBtn" action="specializationsTable.edit"/>
+                <button id="removeBtn" action="specializationsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

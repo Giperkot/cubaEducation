@@ -1,0 +1,2 @@
+alter table COURSES_QUESTION add constraint FK_COURSES_QUESTION_ON_TEST foreign key (TEST_ID) references COURSES_TEST(ID);
+create index IDX_COURSES_QUESTION_ON_TEST on COURSES_QUESTION (TEST_ID);

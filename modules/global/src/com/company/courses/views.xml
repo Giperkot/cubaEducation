@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="courses_Course" name="course-with-spec-and-testList" extends="_local">
+        <property name="specialization" view="_base"/>
+        <property name="testList" view="_minimal"/>
+    </view>
+    <view entity="courses_Test" name="test-with-course-and-questionList" extends="_local">
+        <property name="course" view="_base"/>
+        <property name="questionList" view="_minimal"/>
+    </view>
+    <view entity="courses_Question" name="question-with-test" extends="_local">
+        <property name="test" view="_base"/>
+    </view>
+</views>

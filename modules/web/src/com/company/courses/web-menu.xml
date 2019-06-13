@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-courses" insertBefore="administration">
+        <item screen="courses_Specialization.browse"/>
+        <item screen="courses_Course.browse"/>
+        <item screen="courses_Test.browse"/>
+        <item screen="courses_Question.browse"/>
+    </menu>
+</menu-config>
